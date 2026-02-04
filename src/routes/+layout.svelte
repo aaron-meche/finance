@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$lib/main.css';
-	import { base } from '$app/paths';
 	import favicon from '$lib/assets/favicon.svg';
+	import { resolve } from '$app/paths';
 	let { children } = $props();
 </script>
 
@@ -12,7 +12,7 @@
 
 <div class="page-line">
 	<div class="navstack">
-		<a href="/" class="logo"><i class="fa-solid fa-coins"></i> finance</a>
+		<a href={resolve("/")} class="logo"><i class="fa-solid fa-coins"></i> finance</a>
 
 		<div class="section-title">Money Accounts</div>
 		<div class="button-section">
@@ -55,8 +55,8 @@
 		<div class="navbar">
 			<input type="text" name="Search Bar" id="search_bar" placeholder="Search for something...">
 			<div class="buttons">
-				<a href="/balance" class="top-button"><i class="fa-regular fa-dollar-sign"></i> Balances</a>
-				<a href="/account" class="top-button"><i class="fa-regular fa-user"></i> Account</a>
+				<a href={resolve("/balance")} class="top-button"><i class="fa-regular fa-dollar-sign"></i> Balances</a>
+				<a href={resolve("/account")} class="top-button"><i class="fa-regular fa-user"></i> Account</a>
 			</div>
 		</div>
 		<div class="content">
