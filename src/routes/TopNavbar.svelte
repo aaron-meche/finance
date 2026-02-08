@@ -28,7 +28,7 @@
 	<!-- svelte-ignore a11y_consider_explicit_label -->
 	<button on:click={reloadAPI}><i class="fa-solid fa-arrow-rotate-right"></i> Reload</button>
     <a class:active={page.url.pathname === '/app/balance'} href={resolve("/app/balance")}><i class="fa-regular fa-dollar-sign"></i> Balances</a>
-    <a class:active={page.url.pathname === '/app/account'} href={resolve("/app/Naccount")}><i class="fa-regular fa-user"></i> Account</a>
+    <a class:active={page.url.pathname === '/app/account'} href={resolve("/app/account")}><i class="fa-regular fa-user"></i> Account</a>
 </div>
 
 <!--  -->
