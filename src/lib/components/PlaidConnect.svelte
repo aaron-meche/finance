@@ -68,7 +68,7 @@
 <div class='page'>
     {#if linkHandler}
         <button class="link-account" on:click={() => linkHandler.open()}>
-            + Connect Account
+            + Connect Accounts
         </button> 
     {/if}
 </div>
