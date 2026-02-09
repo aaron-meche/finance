@@ -15,8 +15,6 @@ env:
     secret: plaid-client-id
   - variable: PLAID_SECRET
     secret: plaid-secret
-  - variable: PLAID_REAL
-    secret: plaid-real
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: MY_SECRET
