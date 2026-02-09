@@ -22,10 +22,10 @@
     }
 
     $: {
-        if ($db.user.uid && $db.accessToken) {
+        if ($db?.user.uid && $db?.accessToken) {
             goto("/app");
         }
-        else if ($db.user.uid) {
+        else if ($db?.user.uid) {
             goto("/connect")
         }
     }

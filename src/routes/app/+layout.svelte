@@ -9,7 +9,7 @@
 	let { children } = $props();
 
 	$effect(() => {
-		if (!$db.user.uid || !$db.accessToken) {
+		if (!$db?.user.uid || !$db?.accessToken) {
 			goto("/")
 		}
 	});
