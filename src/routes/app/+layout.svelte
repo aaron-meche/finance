@@ -1,18 +1,18 @@
 <script>
 	import '$lib/main.css';
 	import favicon from '$lib/assets/icon.png';
-	import TopNavbar from '../TopNavbar.svelte';
-	import LeftNavbar from '../LeftNavbar.svelte';
+	import TopNavbar from '$lib/components/TopNavbar.svelte';
+	import LeftNavbar from '$lib/components/LeftNavbar.svelte';
 	import { resolve } from '$app/paths';
+	import { goto } from '$app/navigation';
 	import { db } from '$lib/data'
 	let { children } = $props();
 
-	let money_accounts = []
-	let credit_accounts = []
-	db.subscribe(data => {
-		money_accounts = data.money_accounts || []
-		credit_accounts = data.credit_accounts || []
-	})
+	$effect(() => {
+		if (!$db.user.uid || !$db.accessToken) {
+			goto("/")
+		}
+	});
 </script>
 
 <svelte:head>

@@ -1,7 +1,7 @@
 <!-- created by Aaron Meche -->
 <script>
     import { db } from '$lib/data'
-    import TransactionList from './TransactionList.svelte';
+    import TransactionList from '$lib/components/TransactionList.svelte';
 
     let transactions = []
     let accounts = []

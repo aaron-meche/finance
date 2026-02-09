@@ -2,7 +2,7 @@
 <script>
     import { resolve } from '$app/paths';
     import { db } from '$lib/data'
-    import AccountListItem from './AccountListItem.svelte';
+    import AccountListItem from '$lib/components/AccountListItem.svelte';
 
 	let accounts = []
 	let money_accounts, credit_accounts

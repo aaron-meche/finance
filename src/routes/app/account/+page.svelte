@@ -1,6 +1,6 @@
 <!-- created by Aaron Meche -->
 <script>
-    import PlaidConnect from "../../PlaidConnect.svelte";
+    import PlaidConnect from "$lib/components/PlaidConnect.svelte";
     import { db } from '$lib/data'
 
     let access_token, item_id

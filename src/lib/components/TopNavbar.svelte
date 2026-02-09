@@ -12,7 +12,6 @@
 	})
 
 	function reloadAPI() {
-		if (!accessToken) alert("No access token!")
 		updateAPIs(accessToken)
 	}
 

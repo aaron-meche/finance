@@ -77,10 +77,11 @@
 
 <style>
     .link-account{
+        width: calc(100% - 4rem);
         padding: 1rem 2rem;
         background: var(--l1);
         border: solid 1pt var(--l3);
-        border-radius: 100vh;
+        border-radius: 1rem;
         cursor: pointer;
     }
 

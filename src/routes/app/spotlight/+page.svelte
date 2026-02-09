@@ -3,7 +3,7 @@
     import { page } from '$app/stores';
     import { db } from "$lib/data"
     import { onMount } from 'svelte';
-    import TransactionList from '../../TransactionList.svelte';
+    import TransactionList from '$lib/components/TransactionList.svelte';
 
     let transactions = null;
     let loading = false;

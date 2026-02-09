@@ -1,7 +1,7 @@
 <!-- created by Aaron Meche -->
 <script>
-    import DailySpendingGraph from "../DailySpendingGraph.svelte";
-    import RecentTransactions from "../RecentTransactions.svelte";
+    import DailySpendingGraph from "$lib/components/DailySpendingGraph.svelte";
+    import RecentTransactions from "$lib/components/RecentTransactions.svelte";
 
 </script>
 

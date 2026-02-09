@@ -7,16 +7,16 @@ runConfig:
   # cpu: 1
   # memoryMiB: 512
 
-# Environment variables and secrets.
-# env:
+  # Environment variables and secrets.
+env:
   # Configure environment variables.
   # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
-  # - variable: MESSAGE
-  #   value: Hello world!
-  #   availability:
-  #     - BUILD
-  #     - RUNTIME
-
+  - variable: PLAID_CLIENT_ID
+    secret: plaid-client-id
+  - variable: PLAID_SECRET
+    secret: plaid-secret
+  - variable: PLAID_REAL
+    secret: plaid-real
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: MY_SECRET
