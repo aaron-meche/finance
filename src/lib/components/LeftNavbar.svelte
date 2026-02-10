@@ -24,7 +24,6 @@
 		invest_acc_bal = 0
 
 		accounts = $db.accounts || []
-		console.log(accounts)
 		money_accounts = accounts.filter(item => item.type == "depository")
 		credit_accounts = accounts.filter(item => item.type == "credit")
 		loan_accounts = accounts.filter(item => item.type == "loan")		

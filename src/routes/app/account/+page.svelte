@@ -2,22 +2,35 @@
 <script>
     import PlaidConnect from "$lib/components/PlaidConnect.svelte";
     import { db } from '$lib/data'
+    import { onMount } from "svelte";
 
-    let access_token, item_id
-    db.subscribe(data => {
-        access_token = data?.accessToken || "emp"
-        item_id = data?.itemId || "emp"
+    let user = {}
+    let photoURL = ""
+    let displayName = ""
+    let email = ""
+    $: {
+        user = $db.user
+    }
+
+    onMount(() => {
+        console.log(user)
+        photoURL = user?.photoURL
+        displayName = user?.displayName
+        email = user?.email
     })
 </script>
 
 <!--  -->
 
 <div class='page'>
-    <div class="header">Hello, Welcome to finance</div>
-    <div>Account data</div>
-    <div>access token {access_token}</div>
-    <div>item id {item_id}</div>
-    <PlaidConnect />
+    <div class="account-info">
+        <img class="pfp" src={photoURL} alt="">
+        <div class="details">
+            <div class="display-name">{displayName}</div>
+            <div class="email">{email}</div>
+        </div>
+        <button class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button>
+    </div>
 </div>
 
 <!--  -->
@@ -27,10 +40,38 @@
         padding: 2rem;
     }
 
-    .page > .header{
-        margin-bottom: 1rem;
-        font-size: 20pt;
-        font-weight: 500;
+    .account-info{
+        display: grid;
+        grid-template-columns: min-content auto auto;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .pfp{
+        border-radius: 100vh;
+    }
+    
+    .display-name{
+        font-size: 24pt;
+        font-weight: 600;
+    }
+
+    .email{
+        font-size: 14pt;
+        opacity: 0.75;
+    }
+
+    .logout{
+        margin-left: auto;
+        padding: 1rem 2rem;
+        background: rgb(255, 0, 0, 0.2);
+        border: solid 1pt rgb(255, 0, 0, 0.4);
+        border-radius: 1rem;
+        opacity: 0.8;
+    }
+    
+    .logout:hover{
+        opacity: 1;
     }
 
 </style>

@@ -4,7 +4,6 @@ import { db } from '$lib/data'
 let accounts, transactions
 
 function interpretTransactions(transactions) {
-    console.log(transactions)
     transactions.forEach(t => {
         t.type = "Undefined"
         let a = accounts.find(item => item.account_id === t.account_id)
