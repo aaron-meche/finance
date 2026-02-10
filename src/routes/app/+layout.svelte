@@ -6,13 +6,21 @@
 	import { resolve } from '$app/paths';
 	import { goto } from '$app/navigation';
 	import { db } from '$lib/data'
+    import { onMount } from 'svelte';
 	let { children } = $props();
 
-	$effect(() => {
-		if (!$db?.user.uid || !$db?.accessToken) {
-			goto("/")
+	onMount(() => {
+		if ($db?.user?.uid && $db?.accessToken) {
+			console.log("CONFIMRED: User found. Stationary")
 		}
-	});
+		else if ($db?.user?.uid) {
+			goto("/connect")
+			console.log("CONFIRMED: User found. No Plaid Tokens. Routing to /connect")
+		}
+		else {
+			console.log("User not found. Routing to /connect")
+		}
+	})
 </script>
 
 <svelte:head>

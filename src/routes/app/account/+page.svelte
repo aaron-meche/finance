@@ -1,8 +1,10 @@
 <!-- created by Aaron Meche -->
 <script>
     import PlaidConnect from "$lib/components/PlaidConnect.svelte";
-    import { db } from '$lib/data'
+    import { db, clearDB } from '$lib/data'
+    import { auth } from "$lib/auth";
     import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
 
     let user = {}
     let photoURL = ""
@@ -18,6 +20,12 @@
         displayName = user?.displayName
         email = user?.email
     })
+
+    function logout() {
+        auth.signOut()
+        clearDB()
+        goto("/")
+    }
 </script>
 
 <!--  -->
@@ -29,7 +37,7 @@
             <div class="display-name">{displayName}</div>
             <div class="email">{email}</div>
         </div>
-        <button class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button>
+        <button onclick={logout} class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</button>
     </div>
 </div>
 

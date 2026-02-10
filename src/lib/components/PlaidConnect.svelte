@@ -7,21 +7,6 @@
     let isLoading = true;
     let errorMsg = '';
 
-    function storeData(input) {
-        console.log(input)
-        db.update(data => {
-            console.log("before", data)
-            data.accessToken = input.access_token || "empty"
-            data.itemId = input.item_id || "empty"
-            console.log("after", data)
-            return data
-        })
-        console.log("done")
-        db.subscribe(data => {
-            console.log("post", data)
-        })
-    }
-
     onMount(async () => {
         try {
             const response = await fetch('/api/link-token', { method: 'POST' });
@@ -43,6 +28,7 @@
                         return res.json()
                     }).then(res => {
                         db.update(data => {
+                            console.log("Link Handler")
                             data.accessToken = res.access_token || "empty"
                             data.itemId = res.item_id || "empty"
                             return data

@@ -42,6 +42,7 @@ async function loadAccounts(accessToken) {
         }
 
         db.update(store => {
+            console.log("DB UPDATE: Load Accounts")
             accounts = data.accounts || []
             store.accounts = accounts
             return store
@@ -70,6 +71,7 @@ async function fetchTransactions(accessToken) {
 
         if (data.transactions.length > 0) {
             db.update(store => {
+                console.log("DB UPDATE: Transactions")
                 transactions = interpretTransactions(data.transactions)
                 store.transactions = transactions || []
                 return store

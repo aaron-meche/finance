@@ -12,10 +12,12 @@ export const auth = getAuth(app);
 // Only run the listener in the browser (prevents SSR issues)
 if (typeof window !== 'undefined') {
     onAuthStateChanged(auth, (fireuser) => {
-        db.update(data => {
-            data.user = fireuser
-            return data
-        })
-        console.log(fireuser)
+        if (fireuser) {
+            db.update(data => {
+                console.log("User found, updated db store")
+                data.user = fireuser
+                return data
+            })
+        }
     });
 }

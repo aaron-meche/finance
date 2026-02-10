@@ -47,7 +47,7 @@
 	--hue: 280;
 	--sat: 8%;
 	--strt: 90%;
-	--diff: -8%;
+	--diff: -6%;
 
 	--accent: hsl(var(--hue), 48%, 64%);
 	--accent-transparent: hsl(var(--hue), 48%, 48%, 40%);

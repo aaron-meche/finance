@@ -40,6 +40,13 @@ const storage = {
 }
 
 export const db = storage.exists(storage_ref) ? writable(JSON.parse(storage.read(storage_ref))) : writable(initial_db)
+export function clearDB() {
+    db.update(data => {
+        data = initial_db
+        return data
+    })
+    console.log("Cleared db")
+}
 
 db.subscribe(db => {
     let data
