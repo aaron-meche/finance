@@ -62,7 +62,8 @@
 	--l4: hsl(var(--hue), var(--sat), calc(var(--strt) + (4 * var(--diff))));
 	--l5: hsl(var(--hue), var(--sat), calc(var(--strt) + (5 * var(--diff))));
 	--l6: hsl(var(--hue), var(--sat), calc(var(--strt) + (6 * var(--diff))));
-    --alert: hsl(0, 70%, 58%);
+    --green: hsl(120, 40%, 80%);
+    --red: hsl(0, 40%, 80%);
 
 	--inline-moat: 15vw;
 }
@@ -71,6 +72,8 @@
 	:root{
 		--strt: 8%;
 		--diff: 6%;
+        --green: hsl(120, 40%, 20%);
+        --red: hsl(0, 40%, 20%);
 	}
 }
 

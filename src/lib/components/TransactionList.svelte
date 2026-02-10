@@ -62,7 +62,6 @@
         align-items: center;
         padding: 1rem;
         background: var(--l1);
-        border-radius: 0.5rem;
         opacity: 0.8;
         cursor: pointer;
     }
@@ -81,10 +80,10 @@
     }
 
     .item.positive{
-        background: linear-gradient(to bottom left, rgb(0, 255, 0, 0.1), rgb(255, 0, 0, 0));
+        background: linear-gradient(to bottom left, var(--green), rgb(255, 0, 0, 0));
     }
 
     .item.negative{
-        background: linear-gradient(to top left, rgb(255, 0, 0, 0.1), rgb(255, 0, 0, 0));
+        background: linear-gradient(to bottom left, var(--red), rgb(255, 0, 0, 0));
     }
 </style>

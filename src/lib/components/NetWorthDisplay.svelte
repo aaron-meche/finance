@@ -54,6 +54,7 @@
     }
 
     .wrapper .breakdown{
+        width: calc(100% - 2rem);
         margin: auto;
         padding: 1rem;
         border-radius: 0.5rem;
@@ -81,10 +82,10 @@
     }
 
     .assets{
-        background: linear-gradient(to bottom left, rgb(0, 255, 0, 0.1), rgb(255, 0, 0, 0));
+        background: linear-gradient(to bottom left, var(--green), rgb(255, 0, 0, 0));
     }
 
     .debts{
-        background: linear-gradient(to top right, rgb(255, 0, 0, 0.1), rgb(255, 0, 0, 0));
+        background: linear-gradient(to top left, var(--red), rgb(255, 0, 0, 0));
     }
 </style>
