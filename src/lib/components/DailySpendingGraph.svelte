@@ -43,13 +43,13 @@
 
     .bar-space > .value{
         width: 100%;
-        background: var(--l5);
+        background: linear-gradient(to bottom right, var(--l3), var(--l1));
         border-radius: 0.5rem;
-        transition-duration: 300ms;
+        transition: background 300ms;
     }
 
     .bar-space > .value:hover{
-        background: var(--accent);
+        background: linear-gradient(to bottom right, var(--l5), var(--l1));
     }
 
     .day-label{

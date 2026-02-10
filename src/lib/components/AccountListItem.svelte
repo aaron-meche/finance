@@ -4,13 +4,18 @@
     
     let { account } = $props()
 
+	function formatNumber(num) {
+        if (!num) return 0
+        return num.toLocaleString('en-US')
+    }
+
 </script>
 
 <!--  -->
-<a href={resolve("/spotlight?account_id=" + account.account_id)}>
+<a href={resolve("/app/spotlight?account_id=" + account.account_id)}>
     <div class="data account-button">
         {account.name}
-        <div class="balance">${account.balances.current}</div>
+        <div class="balance">${formatNumber(Math.floor(account.balances.current))}</div>
     </div>
 </a>
 
@@ -20,7 +25,6 @@
     .account-button{
 		padding: 0.5rem 1rem;
 		border-radius: 100vh;
-		opacity: 0.8;
 		cursor: pointer;
 	}
 

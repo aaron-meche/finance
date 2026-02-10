@@ -38,17 +38,21 @@
     src: url('$lib/SansSerif/ExtraBlack.otf') format('opentype');
     font-weight: 900;
 }
+@font-face {
+    font-family: Figtree;
+    src: url("$lib/Figtree/Figtree-VariableFont_wght.ttf");
+}
 
 :root{
-	--hue: 260;
+	--hue: 280;
 	--sat: 8%;
-	--strt: 6%;
-	--diff: 4%;
+	--strt: 90%;
+	--diff: -8%;
 
 	--accent: hsl(var(--hue), 48%, 64%);
 	--accent-transparent: hsl(var(--hue), 48%, 48%, 40%);
     --true-accent: hsl(255, 89%, 64%);
-	--contrast: hsl(var(--hue), 0%, 92%);
+	--contrast: hsl(var(--hue), 0%, calc(100% - var(--strt)));
 	--contrast-transparent: hsl(var(--hue), 0%, 92%, 40%);
 	--bg: hsl(var(--hue), var(--sat), calc(var(--strt) + (0 * var(--diff))));
 	--bg-transparent: hsl(var(--hue), var(--sat), calc(var(--strt) + (0 * var(--diff))), 40%);
@@ -63,14 +67,10 @@
 	--inline-moat: 15vw;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 	:root{
-		--strt: 94%;
-		--diff: -6%;
-        --accent: hsl(var(--hue), 48%, 48%);
-		--contrast: hsl(var(--hue), 0%, 8%);
-        --contrast-transparent: hsl(var(--hue), 0%, 8%, 40%);
-        --alert: hsl(0, 83%, 49%);
+		--strt: 8%;
+		--diff: 6%;
 	}
 }
 
@@ -85,7 +85,7 @@ body{
     margin: 0;
     background: var(--bg);
     font-size: 1rem;
-    font-family: BaileyScript !important;
+    font-family: Figtree !important;
     color: var(--contrast);
     overflow: hidden;
 }

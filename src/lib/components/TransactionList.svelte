@@ -56,17 +56,18 @@
         font-weight: 600;
     }
 
-    .transaction-list > .item{
+    .item{
         display: grid;
         grid-template-columns: auto min-content;
         align-items: center;
         padding: 1rem;
         background: var(--l1);
-        opacity: 0.9;
+        border-radius: 0.5rem;
+        opacity: 0.8;
         cursor: pointer;
     }
 
-    .transaction-list > .item:hover{
+    .item:hover{
         opacity: 1;
     }
 
@@ -80,10 +81,10 @@
     }
 
     .item.positive{
-        background: rgb(2, 67, 2);
+        background: linear-gradient(to bottom left, rgb(0, 255, 0, 0.1), rgb(255, 0, 0, 0));
     }
 
     .item.negative{
-        background: rgb(67, 12, 2);
+        background: linear-gradient(to top left, rgb(255, 0, 0, 0.1), rgb(255, 0, 0, 0));
     }
 </style>

@@ -1,16 +1,16 @@
 <!-- created by Aaron Meche -->
 <script>
+    
+    import NetWorthDisplay from "$lib/components/NetWorthDisplay.svelte";
     import DailySpendingGraph from "$lib/components/DailySpendingGraph.svelte";
     import RecentTransactions from "$lib/components/RecentTransactions.svelte";
-
 </script>
 
 <!--  -->
 
 <div class="page">
-    <div class="top-section">
-        <div class="label">Net Worth</div>
-        <div class="big-value">+ $ 15,583</div>
+    <div class="section">
+        <NetWorthDisplay />
     </div>
 
     <div class="section">
@@ -33,17 +33,6 @@
         display: grid;
         gap: 4rem;
         padding: 2rem;
-    }
-
-    .big-value{
-        font-size: 36pt;
-        font-weight: 600;
-    }
-
-    .top-section > .label{
-        font-size: 24pt;
-        font-weight: 300;
-        opacity: 0.75;
     }
 
     .section{

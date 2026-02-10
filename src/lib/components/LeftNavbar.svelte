@@ -3,14 +3,39 @@
     import { resolve } from '$app/paths';
     import { db } from '$lib/data'
     import AccountListItem from '$lib/components/AccountListItem.svelte';
+	import LeftNavbarSection from './LeftNavbarSection.svelte';
+
+	function formatNumber(num) {
+        if (!num) return 0
+        return num.toLocaleString('en-US')
+    }
 
 	let accounts = []
-	let money_accounts, credit_accounts
-	db.subscribe(data => {
-		accounts = data.accounts || []
+	let money_accounts, credit_accounts, loan_accounts, invest_accounts
+	let money_acc_bal = 0
+	let credit_acc_bal = 0
+	let loan_acc_bal = 0	
+	let invest_acc_bal = 0
+
+	$: {
+		money_acc_bal = 0,
+		credit_acc_bal = 0
+		loan_acc_bal = 0		
+		invest_acc_bal = 0
+
+		accounts = $db.accounts || []
+		console.log(accounts)
 		money_accounts = accounts.filter(item => item.type == "depository")
 		credit_accounts = accounts.filter(item => item.type == "credit")
-	})
+		loan_accounts = accounts.filter(item => item.type == "loan")		
+		invest_accounts = accounts.filter(item => item.type == "investment")
+
+		money_accounts.forEach(acc => { money_acc_bal += acc.balances.current })
+		credit_accounts.forEach(acc => { credit_acc_bal += acc.balances.current })
+		loan_accounts.forEach(acc => { loan_acc_bal += acc.balances.current })		
+		invest_accounts.forEach(acc => { invest_acc_bal += acc.balances.current })
+
+	}
 
 </script>
 
@@ -18,21 +43,19 @@
 
 <a href={resolve("/app")} class="logo"><i class="fa-solid fa-coins"></i> finance</a>
 
-<div class="section-title">Money Accounts</div>
-<div class="button-section">
-    {#each money_accounts as account}
-		<AccountListItem account={account} />
-    {/each}
-</div>
+<LeftNavbarSection title="Money Accounts" accounts={money_accounts} balance={money_acc_bal} />
 
 <div class="section-divider"></div>
 
-<div class="section-title">Credit Accounts</div>
-<div class="button-section">
-    {#each credit_accounts as account}
-        <AccountListItem account={account} />
-    {/each}
-</div>
+<LeftNavbarSection title="Credit Accounts" accounts={credit_accounts} balance={credit_acc_bal} />
+
+<div class="section-divider"></div>
+
+<LeftNavbarSection title="Loan Accounts" accounts={loan_accounts} balance={loan_acc_bal} />
+
+<div class="section-divider"></div>
+
+<LeftNavbarSection title="Investment Accounts" accounts={invest_accounts} balance={invest_acc_bal} />
 
 <!--  -->
 
@@ -50,12 +73,21 @@
 		height: 2rem;
 	}
 
-	.section-title{
+	.section-top-bar{
+		display: grid;
+		grid-template-columns: auto min-content min-content;
+		gap: 0.5rem;
 		margin-inline: 2rem;
 		margin-bottom: 0.5rem;
-		font-size: 12pt;
-		font-weight: 500;
-		color: gray;
+		padding-bottom: 0.5rem;
+		border-bottom: solid 1pt var(--l6);
+		font-weight: 600;
+		opacity: 0.5;
+		cursor: pointer;
+	}
+
+	.section-top-bar:hover{
+		opacity: 1;
 	}
 
 	.button-section{
