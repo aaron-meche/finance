@@ -56,6 +56,7 @@
 	--contrast-transparent: hsl(var(--hue), 0%, 92%, 40%);
 	--bg: hsl(var(--hue), var(--sat), calc(var(--strt) + (0 * var(--diff))));
 	--bg-transparent: hsl(var(--hue), var(--sat), calc(var(--strt) + (0 * var(--diff))), 40%);
+	--l05: hsl(var(--hue), var(--sat), calc(var(--strt) + (0.5 * var(--diff))));
 	--l1: hsl(var(--hue), var(--sat), calc(var(--strt) + (1 * var(--diff))));
 	--l2: hsl(var(--hue), var(--sat), calc(var(--strt) + (2 * var(--diff))));
 	--l3: hsl(var(--hue), var(--sat), calc(var(--strt) + (3 * var(--diff))));

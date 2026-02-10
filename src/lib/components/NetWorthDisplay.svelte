@@ -50,14 +50,24 @@
     .wrapper{
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: auto auto;
         gap: 1rem;
+    }
+
+    @media (max-aspect-ratio: 6/5) {
+        .net-worth{
+            grid-column: span 2;
+        }
+        .wrapper{
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
     .wrapper .breakdown{
         width: calc(100% - 2rem);
         margin: auto;
-        padding: 1rem;
-        border-radius: 0.5rem;
+        padding: 0 1rem;
+        border-left: solid 2pt white;
     }
 
     .label{
@@ -82,10 +92,12 @@
     }
 
     .assets{
-        background: linear-gradient(to bottom left, var(--green), rgb(255, 0, 0, 0));
+        border-color: green !important;
+        /* background: linear-gradient(to bottom left, var(--green), rgb(255, 0, 0, 0)); */
     }
 
     .debts{
-        background: linear-gradient(to top left, var(--red), rgb(255, 0, 0, 0));
+        border-color: red !important;
+        /* background: linear-gradient(to top left, var(--red), rgb(255, 0, 0, 0)); */
     }
 </style>
